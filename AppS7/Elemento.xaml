@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppS7.Elemento">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Blue">
+                <Label Text="Actualizar o Eliminar"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
+            </Frame>
+            <Entry x:Name="name" Placeholder="nombre"/>
+            <Entry x:Name="usuario" Placeholder="usuario"/>
+            <Entry x:Name="password" IsPassword="true"  Placeholder="password"/>
+            <Button x:Name="btnActualizar" Background="blue" TextColor="White" Text="Actualizar" Clicked="btnActualizar_Clicked"/>
+            <Button x:Name="btnEliminar" Background="red" TextColor="White" Text="Eliminar" Clicked="btnEliminar_Clicked"/>
+            <Button x:Name="btnRegresar" Background="orange" TextColor="White" Text="Regresar" Clicked="btnRegresar_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppS7.Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Blue">
+                <Label Text="Inicio de sesión"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
+            </Frame>
+          
+            <Entry  x:Name="usuario" Placeholder="ingrese el usuario"/>
+            <Entry  x:Name="password" Placeholder="ingrese la contraseña" IsPassword="true"/>
+            <Button Text="Ingresar" x:Name="ingresar" Background="blue" TextColor="White" Clicked="ingresar_Clicked"/>
+            <Button Text="Registrar" x:Name="btnRigistrar" Background="orange" TextColor="White" Clicked="btnRigistrar_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
