@@ -8,8 +8,7 @@
                 <Label Text="Inicio de sesión"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
-            </Frame>
-          
+            </Frame>          
             <Entry  x:Name="usuario" Placeholder="ingrese el usuario"/>
             <Entry  x:Name="password" Placeholder="ingrese la contraseña" IsPassword="true"/>
             <Button Text="Ingresar" x:Name="ingresar" Background="blue" TextColor="White" Clicked="ingresar_Clicked"/>

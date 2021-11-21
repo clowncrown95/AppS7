@@ -25,12 +25,11 @@ namespace AppS7
             if (id != 0)
             {
                 consulta(id);
-
             }
             else{
                 lblEquipo.Text = "";
                 lblEquipo.Text = "Nuevo Equipo";
-            }
+            } 
         }
         public static IEnumerable<OrdenTrabjo> SELECT_WHERE(SQLiteConnection db, int id)
         {
@@ -41,7 +40,7 @@ namespace AppS7
             var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
             var db = new SQLiteConnection(documentPath);
 
-            //   List<Estudiante> resul = db.Query<Estudiante>("Select *from estudiante where id=?", id);
+            //List<Estudiante> resul = db.Query<Estudiante>("Select *from estudiante where id=?", id);
             db.CreateTable<OrdenTrabjo>();
             IEnumerable<OrdenTrabjo> resultado = SELECT_WHERE(db, id);
 

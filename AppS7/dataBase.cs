@@ -8,5 +8,6 @@ namespace AppS7
     public interface dataBase
     {
         SQLiteAsyncConnection GetConnection();
+
     }
 }
