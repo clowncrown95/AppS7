@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppS7.ConsultaRegistro">
+             x:Class="AppS7.ConsultarEquipo">
     <ContentPage.Content>
         <StackLayout>
             <Frame BackgroundColor="Blue">
-                <Label Text="Usuarios Registrados"
+                <Label Text="Equipos registrados"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
             </Frame>
-            <ListView x:Name="ListaUsuario" ItemSelected="ListaUsuario_ItemSelected">
+            <ListView x:Name="ListaEquipo" ItemSelected="ListaEquipo_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding nombres}" Detail="{Binding apellidos}"></TextCell>
+                        <TextCell Text="{Binding equipo}" Detail="{Binding modelo}"></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name="btnEquipo" Text="Equipos" Clicked="btnEquipo_Clicked"/>
+            <Button x:Name="btnNuevo" Text="Nuevo" Clicked="btnNuevo_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

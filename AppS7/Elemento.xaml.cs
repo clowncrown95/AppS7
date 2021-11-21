@@ -17,7 +17,7 @@ namespace AppS7
     public partial class Elemento : ContentPage
     {
         private SQLiteAsyncConnection conn;
-        private ObservableCollection<Estudiante> tablaEstudiante;
+        private ObservableCollection<Cliente> tablaEstudiante;
         int id;
         public Elemento(int id)
         {
@@ -25,11 +25,12 @@ namespace AppS7
             InitializeComponent();
             conn = DependencyService.Get<dataBase>().GetConnection();
             consulta(id);
+           
 
         }
-        public static IEnumerable<Estudiante> SELECT_WHERE(SQLiteConnection db, int id)
+        public static IEnumerable<Cliente> SELECT_WHERE(SQLiteConnection db, int id)
         {
-            return db.Query<Estudiante>("Select *from estudiante where id=?", id);
+            return db.Query<Cliente>("Select *from cliente where id=?", id);
         }
         public  void consulta(int id)
         {
@@ -37,14 +38,17 @@ namespace AppS7
             var db = new SQLiteConnection(documentPath);
 
          //   List<Estudiante> resul = db.Query<Estudiante>("Select *from estudiante where id=?", id);
-            db.CreateTable<Estudiante>();
-            IEnumerable<Estudiante> resultado = SELECT_WHERE(db,id);
+            db.CreateTable<Cliente>();
+            IEnumerable<Cliente> resultado = SELECT_WHERE(db,id);
 
             foreach ( var re in resultado.ToList())
             {
-                name.Text = re.nombre;
+                name.Text = re.nombres;
                 usuario.Text = re.usuario;
                 password.Text = re.password;
+                lastname.Text = re.apellidos;
+                direccion.Text = re.direccion;
+                cedula.Text = re.cedula;
             }
            
            
@@ -62,7 +66,7 @@ namespace AppS7
             var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
             var db = new SQLiteConnection(documentPath);
 
-            db.Query<Estudiante>("Update estudiante set nombre=?,usuario=?,password=? where id=?", name,usuario,password,this.id);
+            db.Query<Cliente>("Update cliente set nombres=?,usuario=?,password=? where id=?", name,usuario,password,this.id);
             DisplayAlert("Mensaje", "Se actualizo correctamente", "ok");
             Navigation.PushAsync(new ConsultaRegistro());
         }
@@ -78,7 +82,12 @@ namespace AppS7
 
         private void btnActualizar_Clicked(object sender, EventArgs e)
         {
-            actualizar(name.Text,usuario.Text,password.Text);
+            var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
+            var db = new SQLiteConnection(documentPath);
+
+            db.Query<Cliente>("Update cliente set nombres=?,apellidos=?,cedula=?,direccion=?,usuario=?,password=? where id=?", name.Text, lastname.Text, cedula.Text,direccion.Text,usuario.Text,password.Text, this.id);
+            DisplayAlert("Mensaje", "Se actualizo correctamente", "ok");
+            Navigation.PushAsync(new ConsultaRegistro());
         }
 
         private void btnEliminar_Clicked(object sender, EventArgs e)
@@ -86,7 +95,7 @@ namespace AppS7
             var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
             var db = new SQLiteConnection(documentPath);
 
-            db.Query<Estudiante>("Delete from estudiante where id=?", this.id);
+            db.Query<Cliente>("Delete from cliente where id=?", this.id);
 
             DisplayAlert("Mensaje", "Se elimino correctamente", "ok");
             Navigation.PushAsync(new ConsultaRegistro());

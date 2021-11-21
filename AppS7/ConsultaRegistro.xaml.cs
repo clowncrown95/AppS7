@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace AppS7
     public partial class ConsultaRegistro : ContentPage
     {
         private SQLiteAsyncConnection conn;
-        private ObservableCollection<Estudiante> tablaEstudiante;
+        private ObservableCollection<Cliente> tablaEstudiante;
         public ConsultaRegistro()
         {
             InitializeComponent();
@@ -25,9 +26,9 @@ namespace AppS7
 
         public async void consulta()
         {
-            var registros = await conn.Table<Estudiante>().ToListAsync();
+            var registros = await conn.Table<Cliente>().ToListAsync();
 
-            tablaEstudiante = new ObservableCollection<Estudiante>(registros);
+            tablaEstudiante = new ObservableCollection<Cliente>(registros);
 
             ListaUsuario.ItemsSource= tablaEstudiante;
 
@@ -35,7 +36,7 @@ namespace AppS7
 
         private void ListaUsuario_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var obj = (Estudiante)e.SelectedItem;
+            var obj = (Cliente)e.SelectedItem;
 
             var item = obj.id.ToString();
             int id = Convert.ToInt32(item);
@@ -43,10 +44,19 @@ namespace AppS7
             {
                 Navigation.PushAsync(new Elemento(id));
             }
-            catch (Exception ex){ 
-            
+            catch (Exception ex){
+
+                DisplayAlert("error", ex.Message, "ok");
             }
 
+        }
+
+        private void btnEquipo_Clicked(object sender, EventArgs e)
+        {
+            var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
+            var db = new SQLiteConnection(documentPath);
+            db.CreateTable<OrdenTrabjo>();
+            Navigation.PushAsync(new ConsultarEquipo());
         }
     }
 }

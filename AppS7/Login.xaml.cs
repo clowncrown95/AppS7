@@ -25,9 +25,9 @@ namespace AppS7
         }
 
 
-        public static IEnumerable<Estudiante> SELECT_WHERE(SQLiteConnection db, string usuario, string password)
+        public static IEnumerable<Cliente> SELECT_WHERE(SQLiteConnection db, string usuario, string password)
         {
-            return db.Query<Estudiante>("Select *from estudiante where nombre=? and password=?", usuario, password);
+            return db.Query<Cliente>("Select *from cliente where usuario=? and password=?", usuario, password);
         }
         private void ingresar_Clicked(object sender, EventArgs e)
         {
@@ -36,8 +36,8 @@ namespace AppS7
             {
                 var documentPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "uisrael.db3");
                 var db = new SQLiteConnection(documentPath);
-                db.CreateTable<Estudiante>();
-                IEnumerable<Estudiante> resultado = SELECT_WHERE(db, usuario.Text, password.Text);
+                db.CreateTable<Cliente>();
+                IEnumerable<Cliente> resultado = SELECT_WHERE(db, usuario.Text, password.Text);
 
                 if (resultado.Count()> 0)
                 {

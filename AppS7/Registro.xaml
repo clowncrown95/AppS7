@@ -8,10 +8,14 @@
                 <Label Text="Registrar usuario"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
-            </Frame>          
-            <Entry x:Name="name" Placeholder="nombre"/>
+            </Frame>
+            <Entry x:Name="name" Placeholder="nombres"/>
+            <Entry x:Name="lastname" Placeholder="apellidos"/>
+            <Entry x:Name="direccion" Placeholder="direccion"/>
+            <Entry x:Name="cedula" Placeholder="cedula"/>
             <Entry x:Name="usuario" Placeholder="usuario"/>
-            <Entry x:Name="password" IsPassword="True" Placeholder="password"/>
+            <Entry x:Name="password" IsPassword="true"  Placeholder="password"/>
+            
             <Button x:Name="btnGuardar" Background="blue" TextColor="White" Text="Guardar" Clicked="btnGuardar_Clicked"/>
             <Button x:Name="btnRegresar" Background="orange" TextColor="White" Text="Regresar" Clicked="btnRegresar_Clicked"/>
         </StackLayout>

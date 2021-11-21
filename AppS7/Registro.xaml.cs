@@ -30,10 +30,11 @@ namespace AppS7
         {
             try
             {
-                var registros = new Estudiante { nombre = name.Text, usuario = usuario.Text, password = password.Text };
+                var registros = new Cliente { nombres = name.Text, usuario = usuario.Text, password = password.Text,apellidos=lastname.Text,direccion=direccion.Text,cedula=cedula.Text };
                 conn.InsertAsync(registros);
 
                 DisplayAlert("alerta", "Se guardo correctamente", "ok");
+                Navigation.PushAsync(new Login());
             }
             catch(Exception ex)
             {
