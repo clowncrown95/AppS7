@@ -1,18 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppS7.Login">
+             x:Class="AppS7.Login"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <Frame BackgroundColor="Blue">
                 <Label Text="Inicio de sesión"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
-            </Frame>          
-            <Entry  x:Name="usuario" Placeholder="ingrese el usuario"/>
-            <Entry  x:Name="password" Placeholder="ingrese la contraseña" IsPassword="true"/>
-            <Button Text="Ingresar" x:Name="ingresar" Background="blue" TextColor="White" Clicked="ingresar_Clicked"/>
-            <Button Text="Registrar" x:Name="btnRigistrar" Background="orange" TextColor="White" Clicked="btnRigistrar_Clicked"/>
+            </Frame>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Entry  x:Name="usuario" Placeholder="ingrese el usuario" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0"/>
+                <Entry  x:Name="password" Placeholder="ingrese la contraseña" IsPassword="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Ingresar" x:Name="ingresar" Background="blue" TextColor="White" Clicked="ingresar_Clicked" Grid.Row="0" Grid.Column="1"/>
+                <Button Text="Registrar" x:Name="btnRigistrar" Background="orange" TextColor="White" Clicked="btnRigistrar_Clicked" Grid.Row="0" Grid.Column="2"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

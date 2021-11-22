@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppS7.ConsultarEquipo">
+             x:Class="AppS7.ConsultarEquipo"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <Frame BackgroundColor="Blue">
@@ -16,7 +17,17 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name="btnNuevo" Text="Nuevo" Clicked="btnNuevo_Clicked"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnNuevo" Text="Nuevo" Grid.Row="0" Grid.Column="0" BackgroundColor="Green" Clicked="btnNuevo_Clicked"/>
+                <Button x:Name="btnRegresar" Text="Regresar" Grid.Row="0" Grid.Column="1" BackgroundColor="Orange" Clicked="btnRegresar_Clicked"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

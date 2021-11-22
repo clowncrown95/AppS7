@@ -54,5 +54,10 @@ namespace AppS7
         {
             Navigation.PushAsync(new RegistrarEquipo());
         }
+
+        private void btnRegresar_Clicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

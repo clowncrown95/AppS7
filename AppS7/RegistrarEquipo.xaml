@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppS7.RegistrarEquipo">
+             x:Class="AppS7.RegistrarEquipo"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
             <Frame BackgroundColor="Blue">
@@ -11,42 +12,38 @@
             </Frame>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Entry x:Name="cliente" Grid.Row="0" Grid.Column="0" Placeholder="cliente"/>
-                <Entry x:Name="equipo" Grid.Row="0" Grid.Column="1" Placeholder="equipo"/>
-                <Entry x:Name="modelo" Grid.Row="1" Grid.Column="0" Placeholder="modelo"/>
-                <Entry x:Name="serie" Grid.Row="1" Grid.Column="1" Placeholder="serie"/>
-                <Entry x:Name="fechaIngreso" Grid.Row="2" Grid.Column="0" Placeholder="Fecha Ingreso"/>
-                <Entry x:Name="estado" Grid.Row="2" Grid.Column="1"  Placeholder="Estado"/>
-                <Entry x:Name="fechaSalida" Grid.Row="3" Grid.Column="0"  Placeholder="Fecha Salida"/>
+                <Entry x:Name="equipo" Grid.Row="1" Grid.Column="0" Placeholder="equipo"/>
+                <Entry x:Name="modelo" Grid.Row="2" Grid.Column="0" Placeholder="modelo"/>
+                <Entry x:Name="serie" Grid.Row="3" Grid.Column="0" Placeholder="serie"/>
+                <Entry x:Name="fechaIngreso" Grid.Row="4" Grid.Column="0" Placeholder="Fecha Ingreso"/>
+                <Entry x:Name="estado" Grid.Row="5" Grid.Column="0"  Placeholder="Estado"/>
+                <Entry x:Name="fechaSalida" Grid.Row="6" Grid.Column="0"  Placeholder="Fecha Salida"/>
            </Grid>
 
             <Grid VerticalOptions="End">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnGuardar" Grid.Row="1" Grid.Column="0"  Clicked="btnGuardar_Clicked" Background="blue" TextColor="White" Text="Guardar" />
-                <Button x:Name="btnEliminar" Grid.Row="1" Grid.Column="1" Background="red" TextColor="White" Text="Eliminar" Clicked="btnEliminar_Clicked_1"/>
-                <Button x:Name="btnRegresar" Background="orange" TextColor="White" Text="Regresar" Clicked="btnRegresar_Clicked"/>
+                <Button x:Name="btnGuardar" Grid.Row="0" Grid.Column="0"  Clicked="btnGuardar_Clicked" Background="blue" TextColor="White" Text="Guardar" />
+                <Button x:Name="btnEliminar" Grid.Row="0" Grid.Column="1" Background="red" TextColor="White" Text="Eliminar" Clicked="btnEliminar_Clicked_1"/>
+                <Button x:Name="btnRegresar" Grid.Row="0" Grid.Column="2" Background="orange" TextColor="White" Text="Regresar" Clicked="btnRegresar_Clicked"/>
 
             </Grid>
         </StackLayout>
